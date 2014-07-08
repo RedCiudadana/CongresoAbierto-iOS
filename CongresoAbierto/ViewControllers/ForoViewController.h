@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ForoViewController : UIViewController {
+@interface ForoViewController : UIViewController <UITextFieldDelegate> {
     
     __weak IBOutlet UITextField *representativeTF;
+    
+    id currentResponder;
 }
 
 @end

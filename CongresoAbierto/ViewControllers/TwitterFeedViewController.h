@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TwitterFeedViewController : UIViewController {
+@interface TwitterFeedViewController : UIViewController <UITextFieldDelegate> {
     
     
     __weak IBOutlet UITextField *representativeTF;
+    
+    id currentResponder;
 }
 
 @end

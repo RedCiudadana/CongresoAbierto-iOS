@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D401F44196BA97600482B05 /* SKSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F3F196BA97600482B05 /* SKSTableView.m */; };
+		4D401F45196BA97600482B05 /* SKSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F41196BA97600482B05 /* SKSTableViewCell.m */; };
+		4D401F46196BA97600482B05 /* SKSTableViewCellIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F43196BA97600482B05 /* SKSTableViewCellIndicator.m */; };
 		4DBA7669196A47B6002B5811 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBA7668196A47B6002B5811 /* Foundation.framework */; };
 		4DBA766B196A47B6002B5811 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBA766A196A47B6002B5811 /* CoreGraphics.framework */; };
 		4DBA766D196A47B6002B5811 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBA766C196A47B6002B5811 /* UIKit.framework */; };
@@ -49,6 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D401F3E196BA97600482B05 /* SKSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableView.h; sourceTree = "<group>"; };
+		4D401F3F196BA97600482B05 /* SKSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableView.m; sourceTree = "<group>"; };
+		4D401F40196BA97600482B05 /* SKSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableViewCell.h; sourceTree = "<group>"; };
+		4D401F41196BA97600482B05 /* SKSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableViewCell.m; sourceTree = "<group>"; };
+		4D401F42196BA97600482B05 /* SKSTableViewCellIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableViewCellIndicator.h; sourceTree = "<group>"; };
+		4D401F43196BA97600482B05 /* SKSTableViewCellIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableViewCellIndicator.m; sourceTree = "<group>"; };
 		4DBA7665196A47B6002B5811 /* CongresoAbierto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CongresoAbierto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DBA7668196A47B6002B5811 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4DBA766A196A47B6002B5811 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +135,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D401F3D196BA97600482B05 /* SKSTableView */ = {
+			isa = PBXGroup;
+			children = (
+				4D401F3E196BA97600482B05 /* SKSTableView.h */,
+				4D401F3F196BA97600482B05 /* SKSTableView.m */,
+				4D401F40196BA97600482B05 /* SKSTableViewCell.h */,
+				4D401F41196BA97600482B05 /* SKSTableViewCell.m */,
+				4D401F42196BA97600482B05 /* SKSTableViewCellIndicator.h */,
+				4D401F43196BA97600482B05 /* SKSTableViewCellIndicator.m */,
+			);
+			path = SKSTableView;
+			sourceTree = "<group>";
+		};
 		4DBA765C196A47B6002B5811 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +170,7 @@
 		4DBA7667196A47B6002B5811 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D401F3D196BA97600482B05 /* SKSTableView */,
 				4DBA769D196A4819002B5811 /* SASlideMenu */,
 				4DBA7668196A47B6002B5811 /* Foundation.framework */,
 				4DBA766A196A47B6002B5811 /* CoreGraphics.framework */,
@@ -346,16 +369,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DBA76B7196A4819002B5811 /* SASlideMenuViewController.m in Sources */,
+				4D401F45196BA97600482B05 /* SKSTableViewCell.m in Sources */,
 				4DBA767F196A47B6002B5811 /* ViewController.m in Sources */,
 				4DBA7679196A47B6002B5811 /* AppDelegate.m in Sources */,
 				4DBA76B2196A4819002B5811 /* SASlideMenuNavigationController.m in Sources */,
 				4DBA76C7196A8287002B5811 /* ForoViewController.m in Sources */,
+				4D401F46196BA97600482B05 /* SKSTableViewCellIndicator.m in Sources */,
 				4DBA76B3196A4819002B5811 /* SASlideMenuPushSegue.m in Sources */,
 				4DBA76B4196A4819002B5811 /* SASlideMenuRightMenuSegue.m in Sources */,
 				4DBA76BE196A5EAF002B5811 /* NewsViewController.m in Sources */,
 				4DBA76B6196A4819002B5811 /* SASlideMenuRootViewController.m in Sources */,
 				4DBA76C4196A8193002B5811 /* ComisionesViewController.m in Sources */,
 				4DBA76BB196A4847002B5811 /* MenuViewController.m in Sources */,
+				4D401F44196BA97600482B05 /* SKSTableView.m in Sources */,
 				4DBA76CA196A8369002B5811 /* TwitterFeedViewController.m in Sources */,
 				4DBA76B1196A4819002B5811 /* SASlideMenuLeftMenuSegue.m in Sources */,
 				4DBA76CD196A8454002B5811 /* ContactViewController.m in Sources */,
@@ -567,6 +593,7 @@
 				4DBA7699196A47B7002B5811 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DBA769A196A47B7002B5811 /* Build configuration list for PBXNativeTarget "CongresoAbiertoTests" */ = {
 			isa = XCConfigurationList;
@@ -575,6 +602,7 @@
 				4DBA769C196A47B7002B5811 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

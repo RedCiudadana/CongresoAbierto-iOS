@@ -7,10 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SKSTableView.h"
+#import "SKSTableViewCell.h"
 
-@interface DiputadosViewController : UIViewController {
+
+
+@interface DiputadosViewController : UIViewController <UITextFieldDelegate, SKSTableViewDelegate> {
 
     __weak IBOutlet UITextField *representativeTF;
+    
+    id currentResponder;
+    
+    NSArray *tableContent;
+
 }
+
+@property (nonatomic, weak) IBOutlet SKSTableView *tableView;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContactViewController : UIViewController <UITextViewDelegate> {
+@interface ContactViewController : UIViewController <UITextViewDelegate, UITextFieldDelegate> {
     
     
     __weak IBOutlet UITextField *representativeTF;
@@ -16,6 +16,11 @@
     __weak IBOutlet UITextView *commentTF;
     
     
+    
+    __weak IBOutlet UIButton *sendBT;
+    
+    
+    id currentResponder;
 }
 
 

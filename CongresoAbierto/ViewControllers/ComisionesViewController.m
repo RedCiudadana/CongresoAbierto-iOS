@@ -27,8 +27,25 @@
     representativeTF.layer.borderColor=[[UIColor lightGrayColor]CGColor];
     representativeTF.layer.borderWidth= 1.0f;
     representativeTF.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0); // Inset
+    representativeTF.delegate = self;
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    // Keyboard dismiss tap gesture
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignOnTap:)];
+    [singleTap setNumberOfTapsRequired:1];
+    [singleTap setNumberOfTouchesRequired:1];
+    [self.view addGestureRecognizer:singleTap];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    currentResponder = textField;
+}
+
+
+
+- (void)resignOnTap:(id)iSender {
+    [currentResponder resignFirstResponder];
 }
 
 @end

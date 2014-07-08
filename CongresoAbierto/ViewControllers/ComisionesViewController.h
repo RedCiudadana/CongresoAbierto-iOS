@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ComisionesViewController : UIViewController {
+@interface ComisionesViewController : UIViewController <UITextFieldDelegate> {
     
     __weak IBOutlet UITextField *representativeTF;
+    
+    id currentResponder;
 }
 
 @end

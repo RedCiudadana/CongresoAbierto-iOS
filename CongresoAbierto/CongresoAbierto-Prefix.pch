@@ -14,3 +14,5 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define PLACEHOLDER_GRAY [UIColor colorWithRed:0.773 green:0.773 blue:0.796 alpha:1.000]

@@ -28,24 +28,32 @@
     representativeTF.layer.borderColor=[[UIColor lightGrayColor]CGColor];
     representativeTF.layer.borderWidth= 1.0f;
     representativeTF.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0); // Inset
+    representativeTF.delegate = self;
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     
     
     //  Setup comment textView to mimic textField
-    [commentTF.layer setBorderColor:[[UIColor colorWithRed:212.0/255.0
-                                                    green:212.0/255.0
-                                                     blue:212.0/255.0
-                                                    alpha:1] CGColor]];
+    [commentTF.layer setBorderColor:[PLACEHOLDER_GRAY CGColor]];
     [commentTF.layer setBorderWidth:1.0f];
     [commentTF.layer setCornerRadius:7.0f];
     [commentTF.layer setMasksToBounds:YES];
     
     [commentTF setText:@"Comentario"];
-    [commentTF setTextColor:[UIColor lightGrayColor]];
+    [commentTF setTextColor:PLACEHOLDER_GRAY];
     [commentTF setTag:100]; //start tag with default 100
     commentTF.delegate = self;
+    
+    
+    // Keyboard dismiss tap gesture
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignOnTap:)];
+    [singleTap setNumberOfTapsRequired:1];
+    [singleTap setNumberOfTouchesRequired:1];
+    [self.view addGestureRecognizer:singleTap];
+    
+    
+    sendBT.layer.cornerRadius = 4.0f;
     
 }
 
@@ -70,8 +78,18 @@
     if(strStrippedText.length == 0) {
         [textView setTag:100];
         [textView setText:@"Comentario"];
-        [textView setTextColor:[UIColor lightGrayColor]];
+        [textView setTextColor:PLACEHOLDER_GRAY];
      }
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    currentResponder = textField;
+}
+
+
+
+- (void)resignOnTap:(id)iSender {
+    [currentResponder resignFirstResponder];
 }
 
 

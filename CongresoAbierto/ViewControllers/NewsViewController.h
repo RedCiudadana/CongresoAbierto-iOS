@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsViewController : UIViewController {
+
+@interface NewsViewController : UIViewController <UITextFieldDelegate> {
     
     __weak IBOutlet UITextField *representativeTF;
     
+    id currentResponder;
+    
 }
+
+
+
 
 
 
