@@ -37,37 +37,51 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignOnTap:)];
     [singleTap setNumberOfTapsRequired:1];
     [singleTap setNumberOfTouchesRequired:1];
-    [self.view addGestureRecognizer:singleTap];
+//    [self.view addGestureRecognizer:singleTap];
     
     
     self.tableView.SKSTableViewDelegate = self;
-
     self.tableView.shouldExpandOnlyOneCell = YES;
 
 
+    // Send request to retreive diputados from backend
+    [self sendRequest];
     
-    tableContent = @[
-                  @[
-                      @[@"Section0_Row0", @"Row0_Subrow1",@"Row0_Subrow2"],
-                      @[@"Section0_Row1", @"Row1_Subrow1", @"Row1_Subrow2", @"Row1_Subrow3", @"Row1_Subrow4", @"Row1_Subrow5", @"Row1_Subrow6", @"Row1_Subrow7", @"Row1_Subrow8", @"Row1_Subrow9", @"Row1_Subrow10", @"Row1_Subrow11", @"Row1_Subrow12"],
-                      @[@"Section0_Row2"]],
-                  @[
-                      @[@"Section1_Row0", @"Row0_Subrow1", @"Row0_Subrow2", @"Row0_Subrow3"],
-                      @[@"Section1_Row1"],
-                      @[@"Section1_Row2", @"Row2_Subrow1", @"Row2_Subrow2", @"Row2_Subrow3", @"Row2_Subrow4", @"Row2_Subrow5"],
-                      @[@"Section1_Row3"],
-                      @[@"Section1_Row4"],
-                      @[@"Section1_Row5"],
-                      @[@"Section1_Row6"],
-                      @[@"Section1_Row7"],
-                      @[@"Section1_Row8"],
-                      @[@"Section1_Row9"],
-                      @[@"Section1_Row10"],
-                      @[@"Section1_Row11"]]
-                  ];
+    districts = @[@"Alta Verapaz",
+                  @"Baja Verapaz",
+                  @"Chimaltenango",
+                  @"Chiquimula",
+                  @"Diputado por Listado Nacional",
+                  @"Distrito Central",
+                  @"Distrito Guatemala",
+                  @"El Progreso",
+                  @"Escuintla",
+                  @"Huehuetenango",
+                  @"Izabal",
+                  @"Jalapa",
+                  @"Jutiapa",
+                  @"Petén",
+                  @"Quetzaltenango",
+                  @"Quiché",
+                  @"Retalhuleu",
+                  @"Sacatepéquez",
+                  @"San Marcos",
+                  @"Santa Rosa",
+                  @"Sololá",
+                  @"Suchitepéquez",
+                  @"Totonicapán",
+                  @"Zacapa"];
+    
+    _districtDeputies = [[NSMutableDictionary alloc] init];
+    
+    for (NSString *district in districts) {
+        [_districtDeputies setObject:[[NSMutableArray alloc] init] forKey:district];
+    }
 
     
 }
+
+
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     currentResponder = textField;
@@ -80,21 +94,24 @@
 }
 
 
+
+
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [tableContent count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableContent[section] count];
+    return _districtDeputies.count;
 }
 
 - (NSInteger)tableView:(SKSTableView *)tableView numberOfSubRowsAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableContent[indexPath.section][indexPath.row] count] - 1;
+    return ((NSMutableArray*)[_districtDeputies objectForKey:[districts objectAtIndex:indexPath.row]]).count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,9 +123,9 @@
     if (!cell)
         cell = [[SKSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
-    cell.textLabel.text = tableContent[indexPath.section][indexPath.row][0];
+    cell.textLabel.text = [districts objectAtIndex:indexPath.row];
     
-    if ((indexPath.section == 0 && (indexPath.row == 1 || indexPath.row == 0)) || (indexPath.section == 1 && (indexPath.row == 0 || indexPath.row == 2)))
+    if (((NSMutableArray*)[_districtDeputies objectForKey:[districts objectAtIndex:indexPath.row]]).count > 0)
         cell.expandable = YES;
     else
         cell.expandable = NO;
@@ -118,8 +135,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-
     static NSString *CellIdentifier = @"UITableViewCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -127,7 +142,9 @@
     if (!cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", tableContent[indexPath.section][indexPath.row][indexPath.subRow]];
+    Deputy *currentDeputy = (Deputy*)[((NSMutableArray*)[_districtDeputies objectForKey:[districts objectAtIndex:indexPath.row]]) objectAtIndex:indexPath.subRow];
+    
+    cell.textLabel.text = currentDeputy.name;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -143,6 +160,8 @@
     NSLog(@"Section: %d, Row:%d, Subrow:%d", indexPath.section, indexPath.row, indexPath.subRow);
 }
 
+
+
 - (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Section: %d, Row:%d, Subrow:%d", indexPath.section, indexPath.row, indexPath.subRow);
@@ -154,6 +173,111 @@
 {
     [self.tableView collapseCurrentlyExpandedIndexPaths];
 }
+
+
+- (void) sendRequest {
+    
+    receivedData = [[NSMutableData alloc] init];
+    NSLog(@"Initial data length: %lu",(unsigned long)[receivedData length]);
+    
+    
+    requestURL =[NSString stringWithFormat:@"http://54.186.114.101:3000/listado.json"];
+    
+    
+    
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:requestURL]];
+    [request setHTTPMethod:@"GET"];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+    NSLog(@"connection Started");
+    
+}
+
+
+
+#pragma mark -
+#pragma mark NSURLConnection Delegates
+
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"Failed with error: %@", error.description);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    int responseCode = (int)((NSHTTPURLResponse*)response).statusCode;
+    NSLog(@"Response: %d", responseCode );
+    
+    
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    NSError *error;
+    
+    // Print the raw response
+//    NSLog(@"Data string: %@", [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
+
+
+    
+    
+    NSLog(@"Connection did finish loading");
+
+
+    NSArray* json = [NSJSONSerialization
+                          JSONObjectWithData:receivedData
+                          options:NSUTF8StringEncoding
+                          error:&error];
+
+    if (error) {
+        NSLog(@"Parsing error: %@", error.description);
+    }
+
+    for (NSDictionary *deputyDictionary  in json) {
+        
+        NSLog(@"WHAT");
+        
+        NSString *currentDistrict = [self cleanStringFromString:[deputyDictionary objectForKey:@"distrito"]];
+        
+        NSMutableArray *districtDeputyArray = [_districtDeputies objectForKey:currentDistrict];
+        
+        NSLog(@"Current district %@", currentDistrict);
+        
+
+        
+        Deputy *deputy = [[Deputy alloc] initWithDictionary:deputyDictionary];
+        
+        [districtDeputyArray addObject:deputy];
+        [_districtDeputies setObject:districtDeputyArray forKey:currentDistrict];
+        
+    }
+    
+    NSLog(@"Deputy count %lu", (unsigned long)[_districtDeputies count]);
+
+    [self.tableView reloadData];
+
+}
+
+- (NSString *)cleanStringFromString:(NSString *)string {
+    
+    NSString *cleanString = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    
+    cleanString = [cleanString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+    
+    cleanString = [cleanString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    return cleanString;
+    
+}
+
+
+
+
 
 @end
 

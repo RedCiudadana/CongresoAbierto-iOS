@@ -10,6 +10,9 @@
 		4D401F44196BA97600482B05 /* SKSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F3F196BA97600482B05 /* SKSTableView.m */; };
 		4D401F45196BA97600482B05 /* SKSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F41196BA97600482B05 /* SKSTableViewCell.m */; };
 		4D401F46196BA97600482B05 /* SKSTableViewCellIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F43196BA97600482B05 /* SKSTableViewCellIndicator.m */; };
+		4D401F49196BC81600482B05 /* expandableImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D401F47196BC81600482B05 /* expandableImage.png */; };
+		4D401F4A196BC81600482B05 /* expandableImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D401F48196BC81600482B05 /* expandableImage@2x.png */; };
+		4DB4C05C196CB87400494F29 /* Deputy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C05B196CB87400494F29 /* Deputy.m */; };
 		4DBA7669196A47B6002B5811 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBA7668196A47B6002B5811 /* Foundation.framework */; };
 		4DBA766B196A47B6002B5811 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBA766A196A47B6002B5811 /* CoreGraphics.framework */; };
 		4DBA766D196A47B6002B5811 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBA766C196A47B6002B5811 /* UIKit.framework */; };
@@ -58,6 +61,10 @@
 		4D401F41196BA97600482B05 /* SKSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableViewCell.m; sourceTree = "<group>"; };
 		4D401F42196BA97600482B05 /* SKSTableViewCellIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableViewCellIndicator.h; sourceTree = "<group>"; };
 		4D401F43196BA97600482B05 /* SKSTableViewCellIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableViewCellIndicator.m; sourceTree = "<group>"; };
+		4D401F47196BC81600482B05 /* expandableImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expandableImage.png; sourceTree = "<group>"; };
+		4D401F48196BC81600482B05 /* expandableImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expandableImage@2x.png"; sourceTree = "<group>"; };
+		4DB4C05A196CB87400494F29 /* Deputy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deputy.h; sourceTree = "<group>"; };
+		4DB4C05B196CB87400494F29 /* Deputy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deputy.m; sourceTree = "<group>"; };
 		4DBA7665196A47B6002B5811 /* CongresoAbierto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CongresoAbierto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DBA7668196A47B6002B5811 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4DBA766A196A47B6002B5811 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,8 +151,19 @@
 				4D401F41196BA97600482B05 /* SKSTableViewCell.m */,
 				4D401F42196BA97600482B05 /* SKSTableViewCellIndicator.h */,
 				4D401F43196BA97600482B05 /* SKSTableViewCellIndicator.m */,
+				4D401F47196BC81600482B05 /* expandableImage.png */,
+				4D401F48196BC81600482B05 /* expandableImage@2x.png */,
 			);
 			path = SKSTableView;
+			sourceTree = "<group>";
+		};
+		4DB4C059196CB85A00494F29 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4DB4C05A196CB87400494F29 /* Deputy.h */,
+				4DB4C05B196CB87400494F29 /* Deputy.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		4DBA765C196A47B6002B5811 = {
@@ -183,6 +201,7 @@
 		4DBA766E196A47B6002B5811 /* CongresoAbierto */ = {
 			isa = PBXGroup;
 			children = (
+				4DB4C059196CB85A00494F29 /* Classes */,
 				4DBA76B8196A4837002B5811 /* ViewControllers */,
 				4DBA7677196A47B6002B5811 /* AppDelegate.h */,
 				4DBA7678196A47B6002B5811 /* AppDelegate.m */,
@@ -348,6 +367,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DBA7681196A47B6002B5811 /* Images.xcassets in Resources */,
+				4D401F4A196BC81600482B05 /* expandableImage@2x.png in Resources */,
+				4D401F49196BC81600482B05 /* expandableImage.png in Resources */,
 				4DBA7673196A47B6002B5811 /* InfoPlist.strings in Resources */,
 				4DBA767C196A47B6002B5811 /* Main.storyboard in Resources */,
 			);
@@ -385,6 +406,7 @@
 				4DBA76CA196A8369002B5811 /* TwitterFeedViewController.m in Sources */,
 				4DBA76B1196A4819002B5811 /* SASlideMenuLeftMenuSegue.m in Sources */,
 				4DBA76CD196A8454002B5811 /* ContactViewController.m in Sources */,
+				4DB4C05C196CB87400494F29 /* Deputy.m in Sources */,
 				4DBA76B0196A4819002B5811 /* SASlideMenuContentSegue.m in Sources */,
 				4DBA76B5196A4819002B5811 /* SASlideMenuRightMenuViewController.m in Sources */,
 				4DBA76C1196A7E99002B5811 /* DiputadosViewController.m in Sources */,

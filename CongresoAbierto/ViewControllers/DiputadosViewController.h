@@ -9,19 +9,29 @@
 #import <UIKit/UIKit.h>
 #import "SKSTableView.h"
 #import "SKSTableViewCell.h"
+#import "Deputy.h"
 
 
 
-@interface DiputadosViewController : UIViewController <UITextFieldDelegate, SKSTableViewDelegate> {
+@interface DiputadosViewController : UIViewController <UITextFieldDelegate, SKSTableViewDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
 
     __weak IBOutlet UITextField *representativeTF;
     
     id currentResponder;
     
-    NSArray *tableContent;
+    NSMutableData *receivedData;
+    
+    NSString *requestURL;
+    
+    NSArray *districts;
+    
+    
 
 }
 
-@property (nonatomic, weak) IBOutlet SKSTableView *tableView;
+@property (nonatomic, strong) NSMutableDictionary *districtDeputies;
+
+@property (nonatomic, strong) IBOutlet SKSTableView *tableView;
+
 
 @end

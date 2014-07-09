@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F7C99D53-50BE-47B2-87B6-33296A57301E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CongresoAbierto</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FEB742FA-EC86-4DA7-9C17-CE210DB88340</key>
+		<string>https://github.com/RedCiudadana/CongresoAbierto-iOS</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CongresoAbierto.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FEB742FA-EC86-4DA7-9C17-CE210DB88340</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/RedCiudadana/CongresoAbierto-iOS</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FEB742FA-EC86-4DA7-9C17-CE210DB88340</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FEB742FA-EC86-4DA7-9C17-CE210DB88340</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CongresoAbierto</string>
+		</dict>
+	</array>
+</dict>
+</plist>
