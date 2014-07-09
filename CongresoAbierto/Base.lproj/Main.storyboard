@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iSP-uA-hlA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LjJ-G4-maC">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -34,6 +34,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L47-8q-d6y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-99" y="343"/>
+        </scene>
+        <!--Initial View Controller-->
+        <scene sceneID="Hvb-IZ-is9">
+            <objects>
+                <viewController id="LjJ-G4-maC" customClass="InitialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Qx-Wd-n0K"/>
+                        <viewControllerLayoutGuide type="bottom" id="s84-jL-qgG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mTJ-6z-gvh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="W86-pU-dvv">
+                                <rect key="frame" x="34" y="182" width="252" height="107"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50493270985401462" green="0.81766081204379559" blue="0.95218407846715325" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="iSP-uA-hlA" kind="modal" identifier="InitialSegue" id="BAn-Q1-Tda"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="df5-Ab-vuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-538" y="343"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="9hU-B5-ERf">
@@ -84,7 +111,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.34117648010000001" green="0.34117648010000001" blue="0.34901961679999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
-                                            <segue destination="sRH-Zl-ZoA" kind="custom" customClass="SASlideMenuContentSegue" id="1EJ-hC-ADQ"/>
+                                            <segue destination="sRH-Zl-ZoA" kind="custom" identifier="Noticias" customClass="SASlideMenuContentSegue" id="1EJ-hC-ADQ"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="NYx-g5-TnK">
@@ -104,7 +131,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.34117648010000001" green="0.34117648010000001" blue="0.34901961679999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
-                                            <segue destination="KGE-JI-6Vs" kind="custom" customClass="SASlideMenuContentSegue" id="Ht2-1S-4rH"/>
+                                            <segue destination="KGE-JI-6Vs" kind="custom" identifier="Diputados" customClass="SASlideMenuContentSegue" id="Ht2-1S-4rH"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="ASx-xR-pvw">
@@ -124,7 +151,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.34117648010000001" green="0.34117648010000001" blue="0.34901961679999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
-                                            <segue destination="Eei-BL-DPe" kind="custom" customClass="SASlideMenuContentSegue" id="TmB-CJ-uYK"/>
+                                            <segue destination="Eei-BL-DPe" kind="custom" identifier="Comisiones" customClass="SASlideMenuContentSegue" id="TmB-CJ-uYK"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="nyL-YO-Ib4">
@@ -282,6 +309,24 @@
                                 <rect key="frame" x="0.0" y="76" width="320" height="428"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SKSTableViewCell" rowHeight="174" id="wUd-sm-300" customClass="SKSTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="174"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wUd-sm-300" id="QLE-GB-sko">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UITableViewCell" id="MSb-ZI-sxv">
+                                        <rect key="frame" x="0.0" y="196" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MSb-ZI-sxv" id="0Ik-gr-E5w">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -290,11 +335,65 @@
                     <connections>
                         <outlet property="representativeTF" destination="GuL-rZ-mb3" id="r8D-Hr-zGW"/>
                         <outlet property="tableView" destination="eJc-Lw-C6O" id="0eb-Ti-lWU"/>
+                        <segue destination="CPE-Ay-N9d" kind="push" identifier="ViewDeputy" id="pxC-xs-ucR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1lZ-0W-9cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1376" y="1053"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="36h-nC-FDq">
+            <objects>
+                <viewController id="CPE-Ay-N9d" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qs4-rP-6Xk"/>
+                        <viewControllerLayoutGuide type="bottom" id="ANL-Gq-lLv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Olo-RZ-l3w">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Congreso" translatesAutoresizingMaskIntoConstraints="NO" id="DOw-yh-CZa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¿Quién es mi representante?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWP-qC-eJI">
+                                <rect key="frame" x="20" y="8" width="232" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Distrito, Municipio" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ACG-v5-Ru8">
+                                <rect key="frame" x="49" y="37" width="178" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4lc-Ru-LF1">
+                                <rect key="frame" x="20" y="96" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="David Ytzen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMO-f6-f5E">
+                                <rect key="frame" x="118" y="96" width="182" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="David Ytzen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjA-kW-83O">
+                                <rect key="frame" x="118" y="125" width="182" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1Vr-RU-6MI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UzI-Z4-ZTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831" y="1053"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4KR-vA-zzt">
@@ -604,6 +703,7 @@
     <resources>
         <image name="Congreso" width="640" height="151"/>
         <image name="MenuLogo" width="129" height="48"/>
+        <image name="SplashLogo" width="252" height="107"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

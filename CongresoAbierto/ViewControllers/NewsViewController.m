@@ -15,7 +15,7 @@
     // Navigation bar colors
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.396 green:0.733 blue:0.894 alpha:1.000];
     self.navigationController.navigationBar.translucent = NO;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     
     
     // Representative Textfield placeholder color

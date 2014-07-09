@@ -10,10 +10,11 @@
 #import "SKSTableView.h"
 #import "SKSTableViewCell.h"
 #import "Deputy.h"
+#import "DataManager.h"
 
 
 
-@interface DiputadosViewController : UIViewController <UITextFieldDelegate, SKSTableViewDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
+@interface DiputadosViewController : UIViewController <UITextFieldDelegate, SKSTableViewDelegate> {
 
     __weak IBOutlet UITextField *representativeTF;
     
@@ -25,7 +26,9 @@
     
     NSArray *districts;
     
+    DataManager *dataManager;
     
+;
 
 }
 

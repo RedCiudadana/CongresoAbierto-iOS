@@ -53,8 +53,8 @@
             self.actualParty = [self cleanStringFromString:[dictionary objectForKey:@"partido_actual"]];
         
 
-        if ([dictionary objectForKey:@"name"] && [dictionary objectForKey:@"name"] != [NSNull null])
-            self.name = [self cleanStringFromString:[dictionary objectForKey:@"name"]];
+        if ([dictionary objectForKey:@"nombre"] && [dictionary objectForKey:@"nombre"] != [NSNull null])
+            self.name = [self cleanStringFromString:[dictionary objectForKey:@"nombre"]];
         
 
         if ([dictionary objectForKey:@"departamento"] && [dictionary objectForKey:@"departamento"] != [NSNull null])

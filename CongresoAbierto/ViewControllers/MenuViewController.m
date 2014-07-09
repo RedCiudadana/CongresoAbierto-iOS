@@ -55,4 +55,26 @@
 
 }
 
+//- (NSIndexPath *)selectedIndexPath {
+//    return [NSIndexPath indexPathForRow:1 inSection:0];
+//}
+//
+//-(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath{
+//    NSString* result;
+//    switch (indexPath.section) {
+//        case 0:
+//            result = @"Noticias";
+//            break;
+//        case 1:
+//            result = @"Diputados";
+//            break;
+//        default:
+//            result = @"Comisiones";
+//            break;
+//    }
+//    return result;
+//}
+
+
+
 @end

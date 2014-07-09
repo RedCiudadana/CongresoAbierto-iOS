@@ -13,6 +13,8 @@
 		4D401F49196BC81600482B05 /* expandableImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D401F47196BC81600482B05 /* expandableImage.png */; };
 		4D401F4A196BC81600482B05 /* expandableImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D401F48196BC81600482B05 /* expandableImage@2x.png */; };
 		4DB4C05C196CB87400494F29 /* Deputy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C05B196CB87400494F29 /* Deputy.m */; };
+		4DB4C05F196CE7CE00494F29 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C05E196CE7CE00494F29 /* DataManager.m */; };
+		4DB4C062196CEE9F00494F29 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C061196CEE9F00494F29 /* InitialViewController.m */; };
 		4DBA7669196A47B6002B5811 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBA7668196A47B6002B5811 /* Foundation.framework */; };
 		4DBA766B196A47B6002B5811 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBA766A196A47B6002B5811 /* CoreGraphics.framework */; };
 		4DBA766D196A47B6002B5811 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBA766C196A47B6002B5811 /* UIKit.framework */; };
@@ -65,6 +67,10 @@
 		4D401F48196BC81600482B05 /* expandableImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expandableImage@2x.png"; sourceTree = "<group>"; };
 		4DB4C05A196CB87400494F29 /* Deputy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deputy.h; sourceTree = "<group>"; };
 		4DB4C05B196CB87400494F29 /* Deputy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deputy.m; sourceTree = "<group>"; };
+		4DB4C05D196CE7CE00494F29 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		4DB4C05E196CE7CE00494F29 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		4DB4C060196CEE9F00494F29 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		4DB4C061196CEE9F00494F29 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		4DBA7665196A47B6002B5811 /* CongresoAbierto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CongresoAbierto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DBA7668196A47B6002B5811 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4DBA766A196A47B6002B5811 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -210,6 +216,8 @@
 				4DBA767E196A47B6002B5811 /* ViewController.m */,
 				4DBA7680196A47B6002B5811 /* Images.xcassets */,
 				4DBA766F196A47B6002B5811 /* Supporting Files */,
+				4DB4C05D196CE7CE00494F29 /* DataManager.h */,
+				4DB4C05E196CE7CE00494F29 /* DataManager.m */,
 			);
 			path = CongresoAbierto;
 			sourceTree = "<group>";
@@ -286,6 +294,8 @@
 				4DBA76C9196A8369002B5811 /* TwitterFeedViewController.m */,
 				4DBA76CB196A8454002B5811 /* ContactViewController.h */,
 				4DBA76CC196A8454002B5811 /* ContactViewController.m */,
+				4DB4C060196CEE9F00494F29 /* InitialViewController.h */,
+				4DB4C061196CEE9F00494F29 /* InitialViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -392,6 +402,7 @@
 				4DBA76B7196A4819002B5811 /* SASlideMenuViewController.m in Sources */,
 				4D401F45196BA97600482B05 /* SKSTableViewCell.m in Sources */,
 				4DBA767F196A47B6002B5811 /* ViewController.m in Sources */,
+				4DB4C062196CEE9F00494F29 /* InitialViewController.m in Sources */,
 				4DBA7679196A47B6002B5811 /* AppDelegate.m in Sources */,
 				4DBA76B2196A4819002B5811 /* SASlideMenuNavigationController.m in Sources */,
 				4DBA76C7196A8287002B5811 /* ForoViewController.m in Sources */,
@@ -400,6 +411,7 @@
 				4DBA76B4196A4819002B5811 /* SASlideMenuRightMenuSegue.m in Sources */,
 				4DBA76BE196A5EAF002B5811 /* NewsViewController.m in Sources */,
 				4DBA76B6196A4819002B5811 /* SASlideMenuRootViewController.m in Sources */,
+				4DB4C05F196CE7CE00494F29 /* DataManager.m in Sources */,
 				4DBA76C4196A8193002B5811 /* ComisionesViewController.m in Sources */,
 				4DBA76BB196A4847002B5811 /* MenuViewController.m in Sources */,
 				4D401F44196BA97600482B05 /* SKSTableView.m in Sources */,

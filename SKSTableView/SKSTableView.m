@@ -287,6 +287,7 @@ CGFloat const kDefaultCellHeight = 44.0f;
                 if (cell.isExpanded)
                 {
                     [self setExpanded:YES forCellAtIndexPath:correspondingIndexPath];
+                    
                     [self insertRowsAtIndexPaths:expandedIndexPaths withRowAnimation:UITableViewRowAnimationTop];
                 }
                 else
