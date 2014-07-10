@@ -44,6 +44,7 @@
 		4DBA76C7196A8287002B5811 /* ForoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBA76C6196A8287002B5811 /* ForoViewController.m */; };
 		4DBA76CA196A8369002B5811 /* TwitterFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBA76C9196A8369002B5811 /* TwitterFeedViewController.m */; };
 		4DBA76CD196A8454002B5811 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBA76CC196A8454002B5811 /* ContactViewController.m */; };
+		4DEB29C3196E35C900063263 /* DiputadoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEB29C2196E35C900063263 /* DiputadoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,8 @@
 		4DBA76C9196A8369002B5811 /* TwitterFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterFeedViewController.m; sourceTree = "<group>"; };
 		4DBA76CB196A8454002B5811 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		4DBA76CC196A8454002B5811 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		4DEB29C1196E35C900063263 /* DiputadoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiputadoViewController.h; sourceTree = "<group>"; };
+		4DEB29C2196E35C900063263 /* DiputadoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiputadoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +287,8 @@
 				4DBA76BA196A4847002B5811 /* MenuViewController.m */,
 				4DBA76BC196A5EAF002B5811 /* NewsViewController.h */,
 				4DBA76BD196A5EAF002B5811 /* NewsViewController.m */,
+				4DEB29C1196E35C900063263 /* DiputadoViewController.h */,
+				4DEB29C2196E35C900063263 /* DiputadoViewController.m */,
 				4DBA76BF196A7E99002B5811 /* DiputadosViewController.h */,
 				4DBA76C0196A7E99002B5811 /* DiputadosViewController.m */,
 				4DBA76C2196A8193002B5811 /* ComisionesViewController.h */,
@@ -413,6 +418,7 @@
 				4DBA76B6196A4819002B5811 /* SASlideMenuRootViewController.m in Sources */,
 				4DB4C05F196CE7CE00494F29 /* DataManager.m in Sources */,
 				4DBA76C4196A8193002B5811 /* ComisionesViewController.m in Sources */,
+				4DEB29C3196E35C900063263 /* DiputadoViewController.m in Sources */,
 				4DBA76BB196A4847002B5811 /* MenuViewController.m in Sources */,
 				4D401F44196BA97600482B05 /* SKSTableView.m in Sources */,
 				4DBA76CA196A8369002B5811 /* TwitterFeedViewController.m in Sources */,

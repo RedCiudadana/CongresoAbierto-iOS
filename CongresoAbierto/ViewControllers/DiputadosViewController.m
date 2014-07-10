@@ -146,7 +146,7 @@
 {
     NSLog(@"Section: %d, Row:%d, Subrow:%d", indexPath.section, indexPath.row, indexPath.subRow);
     
-    [self performSegueWithIdentifier:@"ViewDeputy" sender:self];
+    [self performSegueWithIdentifier:@"ViewDeputy" sender:indexPath];
 }
 
 #pragma mark - Actions
@@ -154,6 +154,31 @@
 - (void)collapseSubrows
 {
     [self.tableView collapseCurrentlyExpandedIndexPaths];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+
+    if ([[segue identifier] isEqualToString:@"ViewDeputy"])
+    {
+        // Get reference to the destination view controller
+        DiputadoViewController *vc = [segue destinationViewController];
+        
+        NSIndexPath *indexPath = sender;
+        
+        NSArray *districtDeputies = [self.districtDeputies objectForKey:districts[indexPath.row]];
+        
+        Deputy *deputy = [districtDeputies objectAtIndex:indexPath.subRow];
+        
+        vc.deputy = deputy;
+        
+        NSLog(@"SENDER: %@", deputy.name);
+        
+        
+
+
+    }
+    
 }
 
 

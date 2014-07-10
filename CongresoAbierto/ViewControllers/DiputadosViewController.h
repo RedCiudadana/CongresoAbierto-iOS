@@ -11,6 +11,7 @@
 #import "SKSTableViewCell.h"
 #import "Deputy.h"
 #import "DataManager.h"
+#import "DiputadoViewController.h"
 
 
 
@@ -28,7 +29,7 @@
     
     DataManager *dataManager;
     
-;
+
 
 }
 
