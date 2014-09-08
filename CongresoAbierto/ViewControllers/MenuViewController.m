@@ -50,14 +50,33 @@
     UIImage *menuIcon = [UIImage imageNamed:@"MenuIcon"];
     [menuButton setImage:menuIcon forState:UIControlStateNormal];
 
+
     tableView.backgroundView = nil;
     tableView.backgroundColor = [UIColor colorWithRed:0.349 green:0.349 blue:0.357 alpha:1.000];
 
 }
 
-//- (NSIndexPath *)selectedIndexPath {
-//    return [NSIndexPath indexPathForRow:1 inSection:0];
-//}
+- (NSIndexPath *)selectedIndexPath {
+
+    return [NSIndexPath indexPathForRow:0 inSection:0];
+}
+
+
+-(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath{
+    NSString* result;
+    switch (indexPath.section) {
+        case 0:
+            result = @"mainMenu";
+            break;
+        case 1:
+            result = @"green";
+            break;
+        default:
+            result = @"blue";
+            break;
+    }
+    return result;
+}
 //
 //-(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath{
 //    NSString* result;

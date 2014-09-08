@@ -131,13 +131,13 @@
     
     for (NSDictionary *deputyDictionary  in json) {
         
-        NSLog(@"WHAT");
+//        NSLog(@"WHAT");
         
         NSString *currentDistrict = [self cleanStringFromString:[deputyDictionary objectForKey:@"distrito"]];
         
         NSMutableArray *districtDeputyArray = [_districtDeputies objectForKey:currentDistrict];
         
-        NSLog(@"Current district %@", currentDistrict);
+//        NSLog(@"Current district %@", currentDistrict);
         
         
         
@@ -148,7 +148,7 @@
         
     }
     
-    NSLog(@"Deputy count %lu", (unsigned long)[_districtDeputies count]);
+//    NSLog(@"Deputy count %lu", (unsigned long)[_districtDeputies count]);
     
  [[NSNotificationCenter defaultCenter] postNotificationName:@"DataReceived" object:nil];
     
