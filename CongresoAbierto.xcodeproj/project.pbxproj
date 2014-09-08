@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D278AB019BCEEF7001B8968 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D278AAF19BCEEF7001B8968 /* MainMenuViewController.m */; };
+		4D278ABD19BD88E7001B8968 /* BSKeyboardControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D278AB319BD88E7001B8968 /* BSKeyboardControls.m */; };
+		4D278ABE19BD88E7001B8968 /* BSKeyboardControls.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D278AB419BD88E7001B8968 /* BSKeyboardControls.strings */; };
 		4D401F44196BA97600482B05 /* SKSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F3F196BA97600482B05 /* SKSTableView.m */; };
 		4D401F45196BA97600482B05 /* SKSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F41196BA97600482B05 /* SKSTableViewCell.m */; };
 		4D401F46196BA97600482B05 /* SKSTableViewCellIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F43196BA97600482B05 /* SKSTableViewCellIndicator.m */; };
@@ -61,6 +63,16 @@
 /* Begin PBXFileReference section */
 		4D278AAE19BCEEF7001B8968 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		4D278AAF19BCEEF7001B8968 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		4D278AB219BD88E7001B8968 /* BSKeyboardControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKeyboardControls.h; sourceTree = "<group>"; };
+		4D278AB319BD88E7001B8968 /* BSKeyboardControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKeyboardControls.m; sourceTree = "<group>"; };
+		4D278AB519BD88E7001B8968 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
+		4D278AB619BD88E7001B8968 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
+		4D278AB719BD88E7001B8968 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
+		4D278AB819BD88E7001B8968 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
+		4D278AB919BD88E7001B8968 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/BSKeyboardControls.strings"; sourceTree = "<group>"; };
+		4D278ABA19BD88E7001B8968 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
+		4D278ABB19BD88E7001B8968 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
+		4D278ABC19BD88E7001B8968 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
 		4D401F3E196BA97600482B05 /* SKSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableView.h; sourceTree = "<group>"; };
 		4D401F3F196BA97600482B05 /* SKSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableView.m; sourceTree = "<group>"; };
 		4D401F40196BA97600482B05 /* SKSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableViewCell.h; sourceTree = "<group>"; };
@@ -154,6 +166,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D278AB119BD88E7001B8968 /* BSKeyboardControls */ = {
+			isa = PBXGroup;
+			children = (
+				4D278AB219BD88E7001B8968 /* BSKeyboardControls.h */,
+				4D278AB319BD88E7001B8968 /* BSKeyboardControls.m */,
+				4D278AB419BD88E7001B8968 /* BSKeyboardControls.strings */,
+			);
+			name = BSKeyboardControls;
+			path = CongresoAbierto/Frameworks/BSKeyboardControls;
+			sourceTree = "<group>";
+		};
 		4D401F3D196BA97600482B05 /* SKSTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +223,7 @@
 		4DBA7667196A47B6002B5811 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D278AB119BD88E7001B8968 /* BSKeyboardControls */,
 				4D401F3D196BA97600482B05 /* SKSTableView */,
 				4DBA769D196A4819002B5811 /* SASlideMenu */,
 				4DBA7668196A47B6002B5811 /* Foundation.framework */,
@@ -369,6 +393,13 @@
 			knownRegions = (
 				en,
 				Base,
+				da,
+				es,
+				pt,
+				"ru-RU",
+				ru,
+				sv,
+				uk,
 			);
 			mainGroup = 4DBA765C196A47B6002B5811;
 			productRefGroup = 4DBA7666196A47B6002B5811 /* Products */;
@@ -388,6 +419,7 @@
 			files = (
 				4DBA7681196A47B6002B5811 /* Images.xcassets in Resources */,
 				4D401F4A196BC81600482B05 /* expandableImage@2x.png in Resources */,
+				4D278ABE19BD88E7001B8968 /* BSKeyboardControls.strings in Resources */,
 				4D401F49196BC81600482B05 /* expandableImage.png in Resources */,
 				4DBA7673196A47B6002B5811 /* InfoPlist.strings in Resources */,
 				4DBA767C196A47B6002B5811 /* Main.storyboard in Resources */,
@@ -414,6 +446,7 @@
 				4DBA767F196A47B6002B5811 /* ViewController.m in Sources */,
 				4DB4C062196CEE9F00494F29 /* InitialViewController.m in Sources */,
 				4DBA7679196A47B6002B5811 /* AppDelegate.m in Sources */,
+				4D278ABD19BD88E7001B8968 /* BSKeyboardControls.m in Sources */,
 				4DBA76B2196A4819002B5811 /* SASlideMenuNavigationController.m in Sources */,
 				4DBA76C7196A8287002B5811 /* ForoViewController.m in Sources */,
 				4D401F46196BA97600482B05 /* SKSTableViewCellIndicator.m in Sources */,
@@ -457,6 +490,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4D278AB419BD88E7001B8968 /* BSKeyboardControls.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D278AB519BD88E7001B8968 /* da */,
+				4D278AB619BD88E7001B8968 /* en */,
+				4D278AB719BD88E7001B8968 /* es */,
+				4D278AB819BD88E7001B8968 /* pt */,
+				4D278AB919BD88E7001B8968 /* ru-RU */,
+				4D278ABA19BD88E7001B8968 /* ru */,
+				4D278ABB19BD88E7001B8968 /* sv */,
+				4D278ABC19BD88E7001B8968 /* uk */,
+			);
+			name = BSKeyboardControls.strings;
+			sourceTree = "<group>";
+		};
 		4DBA7671196A47B6002B5811 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

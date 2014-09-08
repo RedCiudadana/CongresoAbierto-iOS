@@ -8,6 +8,7 @@
 
 #import "ContactViewController.h"
 
+
 @implementation ContactViewController
 
 
@@ -20,15 +21,23 @@
     
     // Representative Textfield placeholder color
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Distrito, Municipio" attributes:@{ NSForegroundColorAttributeName : [UIColor lightGrayColor] }];
-    representativeTF.attributedPlaceholder = str;
+    nameTF.attributedPlaceholder = str;
     
     // Representative Textfield's border and inset
-    representativeTF.layer.cornerRadius=4.0f;
-    representativeTF.layer.masksToBounds=YES;
-    representativeTF.layer.borderColor=[[UIColor lightGrayColor]CGColor];
-    representativeTF.layer.borderWidth= 1.0f;
-    representativeTF.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0); // Inset
-    representativeTF.delegate = self;
+    nameTF.layer.cornerRadius=4.0f;
+    nameTF.layer.masksToBounds=YES;
+//    nameTF.layer.borderColor=[[UIColor lightGrayColor]CGColor];
+//    nameTF.layer.borderWidth= 1.0f;
+//    nameTF.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0); // Inset
+    nameTF.delegate = self;
+    
+    // Representative Textfield's border and inset
+    emailTF.layer.cornerRadius=4.0f;
+    emailTF.layer.masksToBounds=YES;
+//    emailTF.layer.borderColor=[[UIColor lightGrayColor]CGColor];
+//    emailTF.layer.borderWidth= 1.0f;
+//    emailTF.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0); // Inset
+    emailTF.delegate = self;
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
@@ -52,10 +61,20 @@
     [singleTap setNumberOfTouchesRequired:1];
     [self.view addGestureRecognizer:singleTap];
     
+
+    NSArray *fields = @[ nameTF, commentTF, sendBT];
+    
+
+
+
+    [self setKeyboardControls:[[BSKeyboardControls alloc] initWithFields:fields]];
+    [self.keyboardControls setDelegate:self];
+    
     
     sendBT.layer.cornerRadius = 4.0f;
     
 }
+
 
 
 
@@ -83,7 +102,16 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+   [self.keyboardControls setActiveField:textField];
     currentResponder = textField;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    
+    [self.keyboardControls setActiveField:textView];
+    currentResponder = textView;
+
 }
 
 
@@ -91,6 +119,15 @@
 - (void)resignOnTap:(id)iSender {
     [currentResponder resignFirstResponder];
 }
+
+- (void)keyboardControlsDonePressed:(BSKeyboardControls *)keyboardControls
+{
+    [keyboardControls.activeField resignFirstResponder];
+}
+
+
+
+
 
 
 @end

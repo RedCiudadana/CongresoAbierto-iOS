@@ -40,6 +40,8 @@
 }
 
 
+
+
 - (CGFloat) leftMenuVisibleWidth{
     return 260;
 }
@@ -64,15 +66,27 @@
 
 -(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath{
     NSString* result;
-    switch (indexPath.section) {
+    switch (indexPath.row) {
         case 0:
             result = @"mainMenu";
             break;
         case 1:
-            result = @"green";
+            result = @"deputies";
+            break;
+        case 2:
+            result = @"comisions";
+            break;
+        case 3:
+            result = @"forum";
+            break;
+        case 4:
+            result = @"twitter";
+            break;
+        case 5:
+            result = @"redCiudadana";
             break;
         default:
-            result = @"blue";
+            result = @"deputies";
             break;
     }
     return result;

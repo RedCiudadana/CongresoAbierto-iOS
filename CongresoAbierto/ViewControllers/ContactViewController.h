@@ -7,21 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BSKeyboardControls.h"
 
-@interface ContactViewController : UIViewController <UITextViewDelegate, UITextFieldDelegate> {
+@interface ContactViewController : UIViewController <BSKeyboardControlsDelegate, UITextViewDelegate, UITextFieldDelegate> {
     
     
-    __weak IBOutlet UITextField *representativeTF;
+    __weak IBOutlet UITextField *nameTF;
     
     __weak IBOutlet UITextView *commentTF;
     
     
+    __weak IBOutlet UITextField *emailTF;
     
     __weak IBOutlet UIButton *sendBT;
+    
+
     
     
     id currentResponder;
 }
+
+@property (nonatomic, strong) BSKeyboardControls *keyboardControls;
 
 
 @end

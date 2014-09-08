@@ -114,7 +114,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.34117648010000001" green="0.34117648010000001" blue="0.34901961679999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
-                                            <segue destination="KGE-JI-6Vs" kind="custom" identifier="Diputados" customClass="SASlideMenuContentSegue" id="Ht2-1S-4rH"/>
+                                            <segue destination="KGE-JI-6Vs" kind="custom" identifier="deputies" customClass="SASlideMenuContentSegue" id="Ht2-1S-4rH"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="ASx-xR-pvw">
@@ -134,7 +134,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.34117648010000001" green="0.34117648010000001" blue="0.34901961679999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
-                                            <segue destination="Eei-BL-DPe" kind="custom" identifier="Comisiones" customClass="SASlideMenuContentSegue" id="TmB-CJ-uYK"/>
+                                            <segue destination="Eei-BL-DPe" kind="custom" identifier="comisions" customClass="SASlideMenuContentSegue" id="TmB-CJ-uYK"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="nyL-YO-Ib4">
@@ -154,7 +154,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.34117648010000001" green="0.34117648010000001" blue="0.34901961679999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
-                                            <segue destination="DEL-ph-Yci" kind="custom" customClass="SASlideMenuContentSegue" id="e28-14-T2y"/>
+                                            <segue destination="DEL-ph-Yci" kind="custom" identifier="forum" customClass="SASlideMenuContentSegue" id="e28-14-T2y"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="XQv-dj-KRc">
@@ -174,7 +174,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.34117648010000001" green="0.34117648010000001" blue="0.34901961679999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
-                                            <segue destination="Mc7-ng-DvN" kind="custom" customClass="SASlideMenuContentSegue" id="6U4-FA-uzf"/>
+                                            <segue destination="Mc7-ng-DvN" kind="custom" identifier="twitter" customClass="SASlideMenuContentSegue" id="6U4-FA-uzf"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="4Ph-lH-eUU">
@@ -193,6 +193,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.34117648010000001" green="0.34117648010000001" blue="0.34901961679999999" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <segue destination="jik-XV-Ci4" kind="custom" identifier="redCiudadana" customClass="SASlideMenuContentSegue" id="oVC-tI-SAJ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="QFu-mu-bcn">
                                         <rect key="frame" x="0.0" y="482" width="320" height="60"/>
@@ -496,7 +499,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Christian Jacques Boussinot Nulia" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="182" translatesAutoresizingMaskIntoConstraints="NO" id="mMO-f6-f5E">
                                 <rect key="frame" x="118" y="96" width="182" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -628,7 +631,7 @@
             </objects>
             <point key="canvasLocation" x="896" y="1760"/>
         </scene>
-        <!--Foro View Controller - Foro del congreso-->
+        <!--Foro View Controller - Tu voz cuenta-->
         <scene sceneID="ll7-Ph-4Tz">
             <objects>
                 <viewController id="Erc-KM-MX7" customClass="ForoViewController" sceneMemberID="viewController">
@@ -669,7 +672,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Foro del congreso" id="ZAQ-77-w1A"/>
+                    <navigationItem key="navigationItem" title="Tu voz cuenta" id="ZAQ-77-w1A"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5c0-Bc-lyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -760,6 +763,37 @@
             </objects>
             <point key="canvasLocation" x="896" y="3144"/>
         </scene>
+        <!--View Controller - Actividades-->
+        <scene sceneID="ahO-yr-n1k">
+            <objects>
+                <viewController id="nQp-VK-506" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VQE-OT-F3Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="TtY-e3-FQx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IYb-LY-riC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedCiudadana" translatesAutoresizingMaskIntoConstraints="NO" id="ez5-Ij-9Ch">
+                                <rect key="frame" x="62" y="195" width="196" height="98"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Próximamente" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4e-hn-3vB">
+                                <rect key="frame" x="19" y="331" width="282" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Actividades" id="FeM-if-hNV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQd-iB-j2Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1376" y="3854"/>
+        </scene>
         <!--Contact View Controller - Contáctanos-->
         <scene sceneID="VQM-HJ-d0w">
             <objects>
@@ -788,6 +822,9 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Voh-Po-i1I" id="GSH-zr-oL2"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bz-u8-zlg">
                                 <rect key="frame" x="233" y="454" width="67" height="30"/>
@@ -830,12 +867,14 @@
                     <navigationItem key="navigationItem" title="Contáctanos" id="UoR-zN-WBq"/>
                     <connections>
                         <outlet property="commentTF" destination="Vbw-kz-rP3" id="4li-vw-W5D"/>
+                        <outlet property="emailTF" destination="23e-XH-hR1" id="rkK-bZ-XhL"/>
+                        <outlet property="nameTF" destination="3xG-ID-Mh8" id="Rx6-kv-T62"/>
                         <outlet property="sendBT" destination="7bz-u8-zlg" id="hE5-qh-lRC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jX-TX-4nv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1381" y="3816"/>
+            <point key="canvasLocation" x="1381" y="5254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dkJ-SU-jVX">
@@ -854,7 +893,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5v1-CA-DcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896" y="3816"/>
+            <point key="canvasLocation" x="907" y="5254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dFc-hG-3KV">
@@ -874,6 +913,74 @@
             </objects>
             <point key="canvasLocation" x="-92" y="1072"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jpN-zY-XCC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jik-XV-Ci4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H84-Es-TDc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nQp-VK-506" kind="relationship" relationship="rootViewController" id="vdn-WN-F83"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J5X-nN-jpi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896" y="3854"/>
+        </scene>
+        <!--View Controller - Red Ciudadana-->
+        <scene sceneID="H8z-nn-zzX">
+            <objects>
+                <viewController id="GuK-F2-Uio" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4GO-Xc-9DH"/>
+                        <viewControllerLayoutGuide type="bottom" id="c9H-eg-19D"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rpq-kg-6tT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedCiudadana" translatesAutoresizingMaskIntoConstraints="NO" id="zUX-un-KYF">
+                                <rect key="frame" x="38" y="138" width="244" height="123"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="262" translatesAutoresizingMaskIntoConstraints="NO" id="M4o-Yl-6yh">
+                                <rect key="frame" x="38" y="269" width="262" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Somos una organización sin fines de lucro, con el objetivo de fomentar la participación ciudadana y desarrollar soluciones a los problemas comunes de los ciudadanos por medio de la tecnología.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Red Ciudadana" id="f0p-Fk-4YG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3hc-oj-C34" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1376" y="4568"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Dml-uK-s02">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qCe-zQ-Q2Z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yob-1D-eYM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GuK-F2-Uio" kind="relationship" relationship="rootViewController" id="KGC-6r-Shc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mgo-iy-Tk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901" y="4568"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ComisionesIcon" width="100" height="100"/>
@@ -883,6 +990,7 @@
         <image name="DiputadosIcon" width="100" height="100"/>
         <image name="ForoIcon" width="100" height="100"/>
         <image name="MenuLogo" width="129" height="48"/>
+        <image name="RedCiudadana" width="300" height="153"/>
         <image name="SplashLogo" width="252" height="107"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -892,9 +1000,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9Ls-1h-xdP"/>
-        <segue reference="fCA-yF-Vsv"/>
-        <segue reference="9kG-YS-hJb"/>
         <segue reference="Kzp-rh-JXz"/>
+        <segue reference="Ym8-Uz-vJN"/>
+        <segue reference="UeT-HO-IE8"/>
+        <segue reference="9Ls-1h-xdP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -54,7 +54,7 @@
 
 
 
-
+    self.navigationController.navigationBar.topItem.title = @"";
 
     
 }
