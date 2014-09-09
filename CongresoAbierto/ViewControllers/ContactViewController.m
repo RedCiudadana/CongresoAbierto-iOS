@@ -63,7 +63,7 @@
     [self.view addGestureRecognizer:singleTap];
     
 
-    NSArray *fields = @[ nameTF, commentTF, sendBT];
+    NSArray *fields = @[ nameTF, emailTF, commentTF];
     
 
 

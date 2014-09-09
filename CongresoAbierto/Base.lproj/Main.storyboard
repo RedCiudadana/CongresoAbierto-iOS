@@ -930,6 +930,9 @@
                                 <rect key="frame" x="20" y="161" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Voh-Po-i1I" id="7oa-7k-odV"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Comentario" translatesAutoresizingMaskIntoConstraints="NO" id="Vbw-kz-rP3">
                                 <rect key="frame" x="21" y="199" width="280" height="240"/>
