@@ -11,13 +11,13 @@
 #import "SKSTableViewCell.h"
 #import "Deputy.h"
 #import "DataManager.h"
-#import "DiputadoViewController.h"
+#import "DeputiesViewController.h"
 
 
 
-@interface DiputadosViewController : UIViewController <UITextFieldDelegate, SKSTableViewDelegate> {
+@interface DiputadosViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate> {
 
-    __weak IBOutlet UITextField *representativeTF;
+
     
     id currentResponder;
     
@@ -29,13 +29,13 @@
     
     DataManager *dataManager;
     
-
+    
 
 }
 
 @property (nonatomic, strong) NSMutableDictionary *districtDeputies;
+@property (nonatomic, strong) IBOutlet  UITableView *tableview;
 
-@property (nonatomic, strong) IBOutlet SKSTableView *tableView;
 
 
 @end

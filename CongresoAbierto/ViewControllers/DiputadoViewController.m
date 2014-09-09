@@ -7,6 +7,7 @@
 //
 
 #import "DiputadoViewController.h"
+#import "UIImageView+WebCache.h"
 
 @implementation DiputadoViewController
 
@@ -18,9 +19,15 @@
     
     
     self.nameLB.text = self.deputy.name;
+    self.districtLB.text = [NSString stringWithFormat:@"%@ | %@", self.deputy.district, self.deputy.actualParty];
 
+    self.emailBT.layer.cornerRadius = 10.0f;
+    self.votesBT.layer.cornerRadius = 10.0f;
+    self.commissionBT.layer.cornerRadius = 10.0f;
+    self.attendanceBT.layer.cornerRadius = 10.0f;
+    self.callBT.layer.cornerRadius = 5.0f;
     
-    
+    [self.pictureIV sd_setImageWithURL:[NSURL URLWithString:self.deputy.pictureURL] placeholderImage:[UIImage imageNamed:@"PicturePH"]];
     
 }
 

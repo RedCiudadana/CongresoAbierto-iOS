@@ -17,25 +17,16 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     
-    // Representative Textfield placeholder color
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Distrito, Municipio" attributes:@{ NSForegroundColorAttributeName : [UIColor lightGrayColor] }];
-    representativeTF.attributedPlaceholder = str;
-    
-    // Representative Textfield's border and inset
-    representativeTF.layer.cornerRadius=4.0f;
-    representativeTF.layer.masksToBounds=YES;
-    representativeTF.layer.borderColor=[[UIColor lightGrayColor]CGColor];
-    representativeTF.layer.borderWidth= 1.0f;
-    representativeTF.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0); // Inset
-    representativeTF.delegate = self;
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
     // Keyboard dismiss tap gesture
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignOnTap:)];
     [singleTap setNumberOfTapsRequired:1];
     [singleTap setNumberOfTouchesRequired:1];
     [self.view addGestureRecognizer:singleTap];
+    
+    DataManager *dataManager = [DataManager sharedManager];
+    _commissions = dataManager.commissions;
+    
+
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -47,5 +38,39 @@
 - (void)resignOnTap:(id)iSender {
     [currentResponder resignFirstResponder];
 }
+
+#pragma mark - UITableView Datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _commissions.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    Commission *commission =  [_commissions objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = commission.name;
+    
+    return cell;
+}
+
+#pragma mark - UITableView Delegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+
 
 @end

@@ -9,6 +9,7 @@
 #import "ContactViewController.h"
 
 
+
 @implementation ContactViewController
 
 
@@ -20,8 +21,8 @@
     
     
     // Representative Textfield placeholder color
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Distrito, Municipio" attributes:@{ NSForegroundColorAttributeName : [UIColor lightGrayColor] }];
-    nameTF.attributedPlaceholder = str;
+
+
     
     // Representative Textfield's border and inset
     nameTF.layer.cornerRadius=4.0f;
@@ -69,10 +70,60 @@
 
     [self setKeyboardControls:[[BSKeyboardControls alloc] initWithFields:fields]];
     [self.keyboardControls setDelegate:self];
+    self.keyboardControls.tintColor = MAIN_THEME_COLOR;
+
     
     
     sendBT.layer.cornerRadius = 4.0f;
     
+
+    
+}
+
+- (IBAction)sendMessage:(id)sender {
+    
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+        mailComposer.navigationBar.tintColor = MAIN_THEME_COLOR;
+        
+        
+        [mailComposer setSubject:@"Congreo Abierto"];
+
+        NSString *message = [NSString stringWithFormat:@"%@\n\n\n------\n%@", commentTF.text, nameTF.text];
+        [mailComposer setMessageBody:message
+                              isHTML:NO];
+
+        [mailComposer setToRecipients:@[@"congreso@redciudadana.org.gt"]];
+        mailComposer.mailComposeDelegate = self;
+        [self presentViewController:mailComposer animated:YES completion:nil];
+    }
+}
+
+
+//Add <MFMailComposeViewControllerDelegate> in .h file
+#pragma mark MFMailComposeViewControllerDelegate
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller
+         didFinishWithResult:(MFMailComposeResult)result
+                       error:(NSError *)error{
+    
+    if (!error) {
+        
+        if (result == MFMailComposeResultSent) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Mensaje enviado" message:@"Tu mensaje ha sido enviado, gracias por tus comentarios." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            
+            [alertView show];
+            
+            nameTF.text = @"";
+            emailTF.text = @"";
+            commentTF.text = @"";
+        }
+
+    }
+    
+
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

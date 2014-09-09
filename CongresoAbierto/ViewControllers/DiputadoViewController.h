@@ -14,10 +14,19 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLB;
+@property (weak, nonatomic) IBOutlet UILabel *districtLB;
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureIV;
 
 @property (strong, nonatomic) Deputy *deputy;
+
+@property (weak, nonatomic) IBOutlet UIButton *emailBT;
+@property (weak, nonatomic) IBOutlet UIButton *votesBT;
+@property (weak, nonatomic) IBOutlet UIButton *commissionBT;
+@property (weak, nonatomic) IBOutlet UIButton *attendanceBT;
+
+@property (weak, nonatomic) IBOutlet UIButton *callBT;
+
 
 @end

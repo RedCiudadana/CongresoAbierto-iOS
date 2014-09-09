@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BSKeyboardControls.h"
+#import <MessageUI/MessageUI.h>
 
-@interface ContactViewController : UIViewController <BSKeyboardControlsDelegate, UITextViewDelegate, UITextFieldDelegate> {
+@interface ContactViewController : UIViewController <BSKeyboardControlsDelegate, UITextViewDelegate, UITextFieldDelegate, MFMailComposeViewControllerDelegate> {
     
     
     __weak IBOutlet UITextField *nameTF;

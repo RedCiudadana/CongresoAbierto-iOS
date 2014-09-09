@@ -1,18 +1,18 @@
 //
-//  MainMenuViewController.m
+//  RedCiudadanaViewController.m
 //  CongresoAbierto
 //
-//  Created by David Hsieh on 9/7/14.
+//  Created by David Hsieh on 9/8/14.
 //  Copyright (c) 2014 Red Ciudadana. All rights reserved.
 //
 
-#import "MainMenuViewController.h"
+#import "RedCiudadanaViewController.h"
 
-@interface MainMenuViewController ()
+@interface RedCiudadanaViewController ()
 
 @end
 
-@implementation MainMenuViewController
+@implementation RedCiudadanaViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,13 +31,7 @@
     // Navigation bar colors
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.396 green:0.733 blue:0.894 alpha:1.000];
     self.navigationController.navigationBar.translucent = NO;
-    
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NavBarLogo.png"]];
 
-    
-    NSLog(@"Parent: %@", self.view.superview);
-    
-    self.navigationController.navigationBar.topItem.title = @"";
 }
 
 - (void)didReceiveMemoryWarning

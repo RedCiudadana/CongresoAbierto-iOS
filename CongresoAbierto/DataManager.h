@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "Deputy.h"
+#import "Commission.h"
 
 @interface DataManager : NSObject {
-    NSString *someProperty;
-    NSString *requestURL;
+
+    NSString *deputiesRequestURL;
+    NSString *commissionsRequestURL;
     
     
-    NSMutableData *receivedData;
+    NSMutableData *deputiesReceivedData;
+    NSMutableData *commissionsReceivedData;
     
+    NSURLConnection *deputiesConnection;
+    NSURLConnection *commissionsConnection;
     
 
     
@@ -23,13 +28,15 @@
 
 @property (nonatomic, retain) NSString *someProperty;
 @property (nonatomic, strong) NSArray *districts;
+@property (nonatomic, strong) NSMutableArray *commissions;
 
 @property (nonatomic, strong) NSMutableDictionary *districtDeputies;
 
 
 
 + (id)sharedManager;
-- (void) sendRequest;
+- (void) requestDeputies;
+- (void) requestCommissions;
 
 
 @end

@@ -80,10 +80,13 @@
             result = @"forum";
             break;
         case 4:
-            result = @"twitter";
+            result = @"activities";
             break;
         case 5:
             result = @"redCiudadana";
+            break;
+        case 6:
+            result = @"contact";
             break;
         default:
             result = @"deputies";

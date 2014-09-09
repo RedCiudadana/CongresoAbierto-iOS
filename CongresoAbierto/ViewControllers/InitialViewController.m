@@ -15,7 +15,8 @@
     
     dataManager = [DataManager sharedManager];
     
-    [dataManager sendRequest];
+    [dataManager requestDeputies];
+    [dataManager requestCommissions];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dataLoaded)

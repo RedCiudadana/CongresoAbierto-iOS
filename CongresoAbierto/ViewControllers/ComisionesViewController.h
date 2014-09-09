@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Commission.h"
+#import "DataManager.h"
 
 @interface ComisionesViewController : UIViewController <UITextFieldDelegate> {
     
     __weak IBOutlet UITextField *representativeTF;
     
     id currentResponder;
+    
+    
 }
+
+@property (nonatomic, strong) NSMutableArray *commissions;
 
 @end

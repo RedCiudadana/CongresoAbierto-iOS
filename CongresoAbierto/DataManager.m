@@ -54,34 +54,51 @@
                       @"Zacapa"];
         
         _districtDeputies = [[NSMutableDictionary alloc] init];
+        _commissions = [[NSMutableArray alloc] init];
         
         for (NSString *district in _districts) {
             [_districtDeputies setObject:[[NSMutableArray alloc] init] forKey:district];
         }
+        
+        deputiesRequestURL =[NSString stringWithFormat:@"http://54.186.114.101:3000/listado.json"];
+        commissionsRequestURL = @"http://54.186.114.101:3000/listado_comisiones.json";
+        
+
         
     }
     return self;
 }
 
 
-- (void) sendRequest {
+- (void) requestDeputies {
     
     
     
-    receivedData = [[NSMutableData alloc] init];
-    NSLog(@"Initial data length: %lu",(unsigned long)[receivedData length]);
+    deputiesReceivedData = [[NSMutableData alloc] init];
+    NSLog(@"Initial data length: %lu",(unsigned long)[deputiesReceivedData length]);
+
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:deputiesRequestURL]];
+    [request setHTTPMethod:@"GET"];
+    deputiesConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [deputiesConnection start];
+    NSLog(@"connection Started");
+    
+}
+
+
+- (void) requestCommissions {
     
     
-    requestURL =[NSString stringWithFormat:@"http://54.186.114.101:3000/listado.json"];
     
-    
-    
+    commissionsReceivedData = [[NSMutableData alloc] init];
+    NSLog(@"Initial data length: %lu",(unsigned long)[commissionsReceivedData length]);
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:requestURL]];
+    [request setURL:[NSURL URLWithString:commissionsRequestURL]];
     [request setHTTPMethod:@"GET"];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
+    commissionsConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [deputiesConnection start];
     NSLog(@"connection Started");
     
 }
@@ -104,7 +121,14 @@
 
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [receivedData appendData:data];
+    
+    if (connection == deputiesConnection) {
+        [deputiesReceivedData appendData:data];
+    } else if (connection == commissionsConnection) {
+        [commissionsReceivedData appendData:data];
+    }
+    
+
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -119,9 +143,11 @@
     
     NSLog(@"Connection did finish loading");
     
+    if (connection == deputiesConnection) {
+    
     
     NSArray* json = [NSJSONSerialization
-                     JSONObjectWithData:receivedData
+                     JSONObjectWithData:deputiesReceivedData
                      options:NSUTF8StringEncoding
                      error:&error];
     
@@ -130,16 +156,10 @@
     }
     
     for (NSDictionary *deputyDictionary  in json) {
-        
-//        NSLog(@"WHAT");
-        
+
         NSString *currentDistrict = [self cleanStringFromString:[deputyDictionary objectForKey:@"distrito"]];
         
         NSMutableArray *districtDeputyArray = [_districtDeputies objectForKey:currentDistrict];
-        
-//        NSLog(@"Current district %@", currentDistrict);
-        
-        
         
         Deputy *deputy = [[Deputy alloc] initWithDictionary:deputyDictionary];
         
@@ -151,6 +171,34 @@
 //    NSLog(@"Deputy count %lu", (unsigned long)[_districtDeputies count]);
     
  [[NSNotificationCenter defaultCenter] postNotificationName:@"DataReceived" object:nil];
+        
+    } else if (connection == commissionsConnection) {
+        
+        
+        
+        NSArray* json = [NSJSONSerialization
+                         JSONObjectWithData:commissionsReceivedData
+                         options:NSUTF8StringEncoding
+                         error:&error];
+        
+        if (error) {
+            NSLog(@"Parsing error: %@", error.description);
+        }
+        
+        for (NSDictionary *commissionDictionary  in json) {
+            
+            
+            Commission *commission = [[Commission alloc] initWithDictionary:commissionDictionary];
+            
+            [_commissions addObject:commission];
+            
+
+            
+        }
+        
+
+        
+    }
     
 
     

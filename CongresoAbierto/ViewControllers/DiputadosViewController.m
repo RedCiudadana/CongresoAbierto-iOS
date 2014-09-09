@@ -17,20 +17,7 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.396 green:0.733 blue:0.894 alpha:1.000];
     self.navigationController.navigationBar.translucent = NO;
 
-    
-    
-    // Representative Textfield placeholder color
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Distrito, Municipio" attributes:@{ NSForegroundColorAttributeName : [UIColor lightGrayColor] }];
-    representativeTF.attributedPlaceholder = str;
-    
-    // Representative Textfield's border and inset
-    representativeTF.layer.cornerRadius=4.0f;
-    representativeTF.layer.masksToBounds=YES;
-    representativeTF.layer.borderColor=[[UIColor lightGrayColor]CGColor];
-    representativeTF.layer.borderWidth= 1.0f;
-    representativeTF.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0); // Inset
-    representativeTF.delegate = self;
-    
+
 
     
     // Keyboard dismiss tap gesture
@@ -38,9 +25,9 @@
     [singleTap setNumberOfTapsRequired:1];
     [singleTap setNumberOfTouchesRequired:1];
 //    [self.view addGestureRecognizer:singleTap];
-    
-    self.tableView.SKSTableViewDelegate = self;
-    self.tableView.shouldExpandOnlyOneCell = YES;
+//    
+//    self.tableView.SKSTableViewDelegate = self;
+//    self.tableView.shouldExpandOnlyOneCell = YES;
     
     
     // Get DataManager
@@ -54,7 +41,7 @@
 
 
 
-    self.navigationController.navigationBar.topItem.title = @"";
+
 
     
 }
@@ -89,46 +76,40 @@
     return _districtDeputies.count;
 }
 
-- (NSInteger)tableView:(SKSTableView *)tableView numberOfSubRowsAtIndexPath:(NSIndexPath *)indexPath
-{
-    return ((NSMutableArray*)[_districtDeputies objectForKey:[districts objectAtIndex:indexPath.row]]).count -1;
-}
+//- (NSInteger)tableView:(SKSTableView *)tableView numberOfSubRowsAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return ((NSMutableArray*)[_districtDeputies objectForKey:[districts objectAtIndex:indexPath.row]]).count -1;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"SKSTableViewCell";
+//    static NSString *CellIdentifier = @"SKSTableViewCell";
     
-    SKSTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    SKSTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    
+//    if (!cell)
+//        cell = [[SKSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    
+
     
-    if (!cell)
-        cell = [[SKSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    if (((NSMutableArray*)[_districtDeputies objectForKey:[districts objectAtIndex:indexPath.row]]).count > 0)
+//        cell.expandable = YES;
+//    else
+//        cell.expandable = NO;
+
+    static NSString *CellIdentifier = @"DistrictCell";
+    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
     cell.textLabel.text = [districts objectAtIndex:indexPath.row];
-    
-    if (((NSMutableArray*)[_districtDeputies objectForKey:[districts objectAtIndex:indexPath.row]]).count > 0)
-        cell.expandable = YES;
-    else
-        cell.expandable = NO;
     
     return cell;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForSubRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"UITableViewCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (!cell)
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    
-    Deputy *currentDeputy = (Deputy*)[((NSMutableArray*)[_districtDeputies objectForKey:[districts objectAtIndex:indexPath.row]]) objectAtIndex:indexPath.subRow];
-    
-    cell.textLabel.text = currentDeputy.name;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    return cell;
-}
 
 - (CGFloat)tableView:(SKSTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -137,42 +118,42 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Section: %d, Row:%d, Subrow:%d", indexPath.section, indexPath.row, indexPath.subRow);
+//    NSLog(@"Section: %d, Row:%d, Subrow:%d", indexPath.section, indexPath.row, indexPath.subRow);
+    [self performSegueWithIdentifier:@"viewDeputies" sender:indexPath];
 }
 
 
-
-- (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"Section: %d, Row:%d, Subrow:%d", indexPath.section, indexPath.row, indexPath.subRow);
-    
-    [self performSegueWithIdentifier:@"ViewDeputy" sender:indexPath];
-}
+//
+//- (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSLog(@"Section: %d, Row:%d, Subrow:%d", indexPath.section, indexPath.row, indexPath.subRow);
+//    
+//    [self performSegueWithIdentifier:@"ViewDeputy" sender:indexPath];
+//}
 
 #pragma mark - Actions
 
-- (void)collapseSubrows
-{
-    [self.tableView collapseCurrentlyExpandedIndexPaths];
-}
+//- (void)collapseSubrows
+//{
+//    [self.tableView collapseCurrentlyExpandedIndexPaths];
+//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
 
-    if ([[segue identifier] isEqualToString:@"ViewDeputy"])
+    if ([[segue identifier] isEqualToString:@"viewDeputies"])
     {
         // Get reference to the destination view controller
-        DiputadoViewController *vc = [segue destinationViewController];
+        DeputiesViewController *vc = [segue destinationViewController];
         
         NSIndexPath *indexPath = sender;
         
         NSArray *districtDeputies = [self.districtDeputies objectForKey:districts[indexPath.row]];
+   
         
-        Deputy *deputy = [districtDeputies objectAtIndex:indexPath.subRow];
+        vc.districtDeputies = districtDeputies;
         
-        vc.deputy = deputy;
-        
-        NSLog(@"SENDER: %@", deputy.name);
+
         
         
 
