@@ -38,6 +38,7 @@
 		4DA5542A19BEBE5E009DBD6D /* Commission.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5542919BEBE5E009DBD6D /* Commission.m */; };
 		4DA5542C19BECEEE009DBD6D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA5542B19BECEEE009DBD6D /* MessageUI.framework */; };
 		4DA5542F19BED43A009DBD6D /* CommissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5542E19BED43A009DBD6D /* CommissionViewController.m */; };
+		4DA5543219BED91C009DBD6D /* CommissionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5543119BED91C009DBD6D /* CommissionsTableViewCell.m */; };
 		4DB4C05C196CB87400494F29 /* Deputy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C05B196CB87400494F29 /* Deputy.m */; };
 		4DB4C05F196CE7CE00494F29 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C05E196CE7CE00494F29 /* DataManager.m */; };
 		4DB4C062196CEE9F00494F29 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C061196CEE9F00494F29 /* InitialViewController.m */; };
@@ -150,6 +151,8 @@
 		4DA5542B19BECEEE009DBD6D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		4DA5542D19BED43A009DBD6D /* CommissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommissionViewController.h; sourceTree = "<group>"; };
 		4DA5542E19BED43A009DBD6D /* CommissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommissionViewController.m; sourceTree = "<group>"; };
+		4DA5543019BED91C009DBD6D /* CommissionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommissionsTableViewCell.h; sourceTree = "<group>"; };
+		4DA5543119BED91C009DBD6D /* CommissionsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommissionsTableViewCell.m; sourceTree = "<group>"; };
 		4DB4C05A196CB87400494F29 /* Deputy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deputy.h; sourceTree = "<group>"; };
 		4DB4C05B196CB87400494F29 /* Deputy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deputy.m; sourceTree = "<group>"; };
 		4DB4C05D196CE7CE00494F29 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 			children = (
 				4DA553F319BE87D2009DBD6D /* DeputyCell.h */,
 				4DA553F419BE87D2009DBD6D /* DeputyCell.m */,
+				4DA5543019BED91C009DBD6D /* CommissionsTableViewCell.h */,
+				4DA5543119BED91C009DBD6D /* CommissionsTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 				4D401F46196BA97600482B05 /* SKSTableViewCellIndicator.m in Sources */,
 				4DA5541919BE888A009DBD6D /* NSData+ImageContentType.m in Sources */,
 				4DA5542219BE888A009DBD6D /* UIImage+GIF.m in Sources */,
+				4DA5543219BED91C009DBD6D /* CommissionsTableViewCell.m in Sources */,
 				4DBA76B3196A4819002B5811 /* SASlideMenuPushSegue.m in Sources */,
 				4DA5541D19BE888A009DBD6D /* SDWebImageDownloader.m in Sources */,
 				4DA5541B19BE888A009DBD6D /* SDWebImageCompat.m in Sources */,

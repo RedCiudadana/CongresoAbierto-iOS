@@ -8,6 +8,7 @@
 
 #import "ComisionesViewController.h"
 #import "CommissionViewController.h"
+#import "CommissionsTableViewCell.h"
 
 @implementation ComisionesViewController
 
@@ -43,17 +44,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"Cell";
+    static NSString *cellIdentifier = @"CommissionCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    CommissionsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[CommissionsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     Commission *commission =  [_commissions objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = commission.name;
+    cell.nameLB.text = commission.name;
     
     return cell;
 }
