@@ -37,6 +37,7 @@
 		4DA5542719BE888A009DBD6D /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5541719BE888A009DBD6D /* UIView+WebCacheOperation.m */; };
 		4DA5542A19BEBE5E009DBD6D /* Commission.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5542919BEBE5E009DBD6D /* Commission.m */; };
 		4DA5542C19BECEEE009DBD6D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA5542B19BECEEE009DBD6D /* MessageUI.framework */; };
+		4DA5542F19BED43A009DBD6D /* CommissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5542E19BED43A009DBD6D /* CommissionViewController.m */; };
 		4DB4C05C196CB87400494F29 /* Deputy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C05B196CB87400494F29 /* Deputy.m */; };
 		4DB4C05F196CE7CE00494F29 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C05E196CE7CE00494F29 /* DataManager.m */; };
 		4DB4C062196CEE9F00494F29 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4C061196CEE9F00494F29 /* InitialViewController.m */; };
@@ -147,6 +148,8 @@
 		4DA5542819BEBE5E009DBD6D /* Commission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commission.h; sourceTree = "<group>"; };
 		4DA5542919BEBE5E009DBD6D /* Commission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commission.m; sourceTree = "<group>"; };
 		4DA5542B19BECEEE009DBD6D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		4DA5542D19BED43A009DBD6D /* CommissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommissionViewController.h; sourceTree = "<group>"; };
+		4DA5542E19BED43A009DBD6D /* CommissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommissionViewController.m; sourceTree = "<group>"; };
 		4DB4C05A196CB87400494F29 /* Deputy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deputy.h; sourceTree = "<group>"; };
 		4DB4C05B196CB87400494F29 /* Deputy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deputy.m; sourceTree = "<group>"; };
 		4DB4C05D196CE7CE00494F29 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				4DA553ED19BE38B3009DBD6D /* ActivitiesViewController.m */,
 				4DA553EF19BE6F0D009DBD6D /* DeputiesViewController.h */,
 				4DA553F019BE6F0D009DBD6D /* DeputiesViewController.m */,
+				4DA5542D19BED43A009DBD6D /* CommissionViewController.h */,
+				4DA5542E19BED43A009DBD6D /* CommissionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -569,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA5542F19BED43A009DBD6D /* CommissionViewController.m in Sources */,
 				4DBA76B7196A4819002B5811 /* SASlideMenuViewController.m in Sources */,
 				4DA5542019BE888A009DBD6D /* SDWebImagePrefetcher.m in Sources */,
 				4DA5542719BE888A009DBD6D /* UIView+WebCacheOperation.m in Sources */,

@@ -29,6 +29,23 @@
     
     [self.pictureIV sd_setImageWithURL:[NSURL URLWithString:self.deputy.pictureURL] placeholderImage:[UIImage imageNamed:@"PicturePH"]];
     
+    
+}
+
+
+- (IBAction)call:(id)sender {
+    
+    NSString *phNo = [NSString stringWithFormat:@"+502%@", self.deputy.phone];
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",phNo]];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
+        [[UIApplication sharedApplication] openURL:phoneUrl];
+    } else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Tu dispositivo no puede realizar llamadas" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
 }
 
 @end

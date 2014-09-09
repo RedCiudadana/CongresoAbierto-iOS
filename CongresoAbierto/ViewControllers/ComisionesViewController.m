@@ -7,6 +7,7 @@
 //
 
 #import "ComisionesViewController.h"
+#import "CommissionViewController.h"
 
 @implementation ComisionesViewController
 
@@ -17,12 +18,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     
-    // Keyboard dismiss tap gesture
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignOnTap:)];
-    [singleTap setNumberOfTapsRequired:1];
-    [singleTap setNumberOfTouchesRequired:1];
-    [self.view addGestureRecognizer:singleTap];
-    
+
     DataManager *dataManager = [DataManager sharedManager];
     _commissions = dataManager.commissions;
     
@@ -35,9 +31,6 @@
 
 
 
-- (void)resignOnTap:(id)iSender {
-    [currentResponder resignFirstResponder];
-}
 
 #pragma mark - UITableView Datasource
 
@@ -68,8 +61,35 @@
 #pragma mark - UITableView Delegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"viewCommission" sender:indexPath];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+    if ([[segue identifier] isEqualToString:@"viewCommission"])
+    {
+        // Get reference to the destination view controller
+        CommissionViewController *vc = [segue destinationViewController];
+        
+        NSIndexPath *indexPath = sender;
+        
+        Commission *commission = [[[DataManager sharedManager] commissions] objectAtIndex:indexPath.row];
+        
+        
+        vc.commission = commission;
+        
+//        NSLog(@"Commision %@", commission);
+        
+        
+        
+        
+    }
     
 }
+
+
 
 
 
