@@ -11,6 +11,7 @@
 		4D278ABD19BD88E7001B8968 /* BSKeyboardControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D278AB319BD88E7001B8968 /* BSKeyboardControls.m */; };
 		4D278ABE19BD88E7001B8968 /* BSKeyboardControls.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D278AB419BD88E7001B8968 /* BSKeyboardControls.strings */; };
 		4D285A0719BFB2B9009E3649 /* BDMessagesKeyboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D285A0619BFB2B9009E3649 /* BDMessagesKeyboardController.m */; };
+		4D285A0A19C009A9009E3649 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D285A0919C009A9009E3649 /* MessageCell.m */; };
 		4D401F44196BA97600482B05 /* SKSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F3F196BA97600482B05 /* SKSTableView.m */; };
 		4D401F45196BA97600482B05 /* SKSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F41196BA97600482B05 /* SKSTableViewCell.m */; };
 		4D401F46196BA97600482B05 /* SKSTableViewCellIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D401F43196BA97600482B05 /* SKSTableViewCellIndicator.m */; };
@@ -115,6 +116,8 @@
 		4D278ABC19BD88E7001B8968 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
 		4D285A0519BFB2B9009E3649 /* BDMessagesKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDMessagesKeyboardController.h; sourceTree = "<group>"; };
 		4D285A0619BFB2B9009E3649 /* BDMessagesKeyboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDMessagesKeyboardController.m; sourceTree = "<group>"; };
+		4D285A0819C009A9009E3649 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		4D285A0919C009A9009E3649 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		4D401F3E196BA97600482B05 /* SKSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableView.h; sourceTree = "<group>"; };
 		4D401F3F196BA97600482B05 /* SKSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSTableView.m; sourceTree = "<group>"; };
 		4D401F40196BA97600482B05 /* SKSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSTableViewCell.h; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				4DA553F419BE87D2009DBD6D /* DeputyCell.m */,
 				4DA5543019BED91C009DBD6D /* CommissionsTableViewCell.h */,
 				4DA5543119BED91C009DBD6D /* CommissionsTableViewCell.m */,
+				4D285A0819C009A9009E3649 /* MessageCell.h */,
+				4D285A0919C009A9009E3649 /* MessageCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -638,6 +643,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Red Ciudadana";
 				TargetAttributes = {
+					4DBA7664196A47B6002B5811 = {
+						DevelopmentTeam = 7JMSL42G43;
+					};
 					4DBA7685196A47B7002B5811 = {
 						TestTargetID = 4DBA7664196A47B6002B5811;
 					};
@@ -725,6 +733,7 @@
 				4DA5545919BEDCF0009DBD6D /* STTwitterOS.m in Sources */,
 				4DA5541B19BE888A009DBD6D /* SDWebImageCompat.m in Sources */,
 				4DBA76B4196A4819002B5811 /* SASlideMenuRightMenuSegue.m in Sources */,
+				4D285A0A19C009A9009E3649 /* MessageCell.m in Sources */,
 				4DA5545819BEDCF0009DBD6D /* STTwitterOAuth.m in Sources */,
 				4DA5542519BE888A009DBD6D /* UIImageView+HighlightedWebCache.m in Sources */,
 				4DA5545419BEDCF0009DBD6D /* STHTTPRequest+STTwitter.m in Sources */,
@@ -903,10 +912,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Asociacion Civil Red Ciudadana (7JMSL42G43)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CongresoAbierto/CongresoAbierto-Prefix.pch";
 				INFOPLIST_FILE = "CongresoAbierto/CongresoAbierto-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -916,10 +928,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Asociacion Civil Red Ciudadana (7JMSL42G43)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CongresoAbierto/CongresoAbierto-Prefix.pch";
 				INFOPLIST_FILE = "CongresoAbierto/CongresoAbierto-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

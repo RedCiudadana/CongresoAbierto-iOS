@@ -29,6 +29,8 @@
 //                                          oauthTokenSecret:@"PC2ABV4XvYfJmLKEPAJP9Svu84bJ4ulY6oVA6GNdRwiYQ"];
 
     
+    hashtag = @"#CongresoAbiertoGT";
+    
     __weak TwitterFeedViewController *weakSelf = self;
     
     twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
@@ -70,8 +72,78 @@
     
 
     
+    _tweets = [[NSMutableArray alloc] init];
+    
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+}
+
+
+#pragma mark - UITableView Datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _tweets.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"MessageCell";
+    
+    MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if(cell == nil) {
+        cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    
+    
+    cell.messageLB.text = [[[_tweets objectAtIndex:indexPath.row] objectForKey:@"text"] stringByReplacingOccurrencesOfString:hashtag withString:@""];
+    NSString *username = [[[_tweets objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"name"];
+    cell.usernameLB.text = [NSString stringWithFormat:@"%@ dice:", username];
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE MMM dd hh:mm:ss Z yyyy"];
+    NSDate *date = [dateFormatter dateFromString:[[_tweets objectAtIndex:indexPath.row] objectForKey:@"created_at"]];
+    
+    [dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm"];
+    
+    NSLog(@"New date: %@", date);
+    
+    cell.dateLB.text = [dateFormatter stringFromDate:date];
+    
+    
+    [self resizeHeightForLabel:cell.messageLB];
+    
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString * text = [[_tweets objectAtIndex:indexPath.row] objectForKey:@"text"];
+    return 10.0f + [self heightForText:text];
+}
+
+-(CGFloat)heightForText:(NSString *)text
+{
+    NSInteger MAX_HEIGHT = 2000;
+    UITextView * textView = [[UITextView alloc] initWithFrame: CGRectMake(0, 0, 273, MAX_HEIGHT)];
+    textView.text = text;
+    textView.font = [UIFont systemFontOfSize:13.0f];
+    [textView sizeToFit];
+    return textView.frame.size.height;
+}
+
+#pragma mark - UITableView Delegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
 
 - (IBAction)showMessageKeyboard:(id)sender
@@ -101,14 +173,23 @@
         
         
          request = [twitter postStatusesFilterUserIDs:nil
-                                        keywordsToTrack:@[@"#tv"]
+                                        keywordsToTrack:@[hashtag]
                                   locationBoundingBoxes:nil
                                               delimited:nil
                                           stallWarnings:nil
                                           progressBlock:^(id response) {
                                               
                                               NSLog(@"progressBlock");
-                                              NSLog(@"%@",[((NSDictionary*)response) objectForKey:@"text"]);
+                                              NSLog(@"%@",((NSDictionary*)response));
+                                              
+
+                                              [_tableView beginUpdates];
+
+                                              [_tweets addObject:response];
+                                              NSLog(@"tweets size %ld", _tweets.count);
+                                              [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_tweets.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+                                              [_tableView endUpdates];
+                                              [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_tweets.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 
                                               
                                           }
@@ -119,6 +200,7 @@
                                                  NSLog(@"-- %@", [error localizedDescription]);
                                                  if([[error domain] isEqualToString:NSURLErrorDomain] && [error code] == NSURLErrorNetworkConnectionLost) {
                                                      [self stream:sender];
+
                                                  }
                                              }
                       ];
@@ -127,6 +209,8 @@
         //
         NSLog(@"%@", [error localizedDescription]);
     }];
+    
+
     
 //    [request cancel]; // when you're done with it
 }
@@ -141,7 +225,7 @@
     
         [twitter verifyCredentialsWithSuccessBlock:^(NSString *username){
             
-            [twitter postStatusUpdate:_mKBC.getText
+            [twitter postStatusUpdate:[NSString stringWithFormat:@"%@ %@", _mKBC.getText, hashtag]
                     inReplyToStatusID:nil
                              latitude:nil
                             longitude:nil
@@ -165,5 +249,33 @@
     
 
 }
+
+-(void)resizeHeightForLabel: (UILabel*)label {
+    label.numberOfLines = 0;
+    UIView *superview = label.superview;
+    [label removeFromSuperview];
+    [label removeConstraints:label.constraints];
+    CGRect labelFrame = label.frame;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+        CGRect expectedFrame = [label.text boundingRectWithSize:CGSizeMake(label.frame.size.width, 9999)
+                                                        options:NSStringDrawingUsesLineFragmentOrigin
+                                                     attributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 label.font, NSFontAttributeName,
+                                                                 nil]
+                                                        context:nil];
+        labelFrame.size = expectedFrame.size;
+        labelFrame.size.height = ceil(labelFrame.size.height); //iOS7 is not rounding up to the nearest whole number
+    } else {
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+        labelFrame.size = [label.text sizeWithFont:label.font
+                                 constrainedToSize:CGSizeMake(label.frame.size.width, 9999)
+                                     lineBreakMode:label.lineBreakMode];
+#pragma GCC diagnostic warning "-Wdeprecated-declarations"
+    }
+    label.frame = labelFrame;
+    [superview addSubview:label];
+
+}
+
 
 @end
