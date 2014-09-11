@@ -112,6 +112,7 @@
     NSDate *date = [dateFormatter dateFromString:[[_tweets objectAtIndex:indexPath.row] objectForKey:@"created_at"]];
     
     [dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm"];
+    [dateFormatter setDateFormat:@"HH:mm"];
     
     NSLog(@"New date: %@", date);
     
@@ -148,7 +149,7 @@
 
 - (IBAction)showMessageKeyboard:(id)sender
 {
-    [_mKBC showOnViewController:self adjustingScrollView:self.tableView forScrollViewSubview:self.button];
+    [_mKBC showOnViewController:self adjustingScrollView:nil forScrollViewSubview:self.button];
 }
 
 
@@ -170,7 +171,7 @@
     twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
     [twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
         
-        
+        [_OverlayView setHidden:YES];
         
          request = [twitter postStatusesFilterUserIDs:nil
                                         keywordsToTrack:@[hashtag]
@@ -277,5 +278,8 @@
 
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [self cancel:self];
+}
 
 @end

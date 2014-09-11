@@ -101,7 +101,7 @@
 }
 
 
-//Add <MFMailComposeViewControllerDelegate> in .h file
+
 #pragma mark MFMailComposeViewControllerDelegate
 
 -(void)mailComposeController:(MFMailComposeViewController *)controller

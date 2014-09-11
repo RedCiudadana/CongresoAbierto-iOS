@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Deputy.h"
+#import <MessageUI/MessageUI.h>
 
-@interface DiputadoViewController : UIViewController
+
+@interface DiputadoViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 
 

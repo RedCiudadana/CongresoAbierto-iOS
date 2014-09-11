@@ -30,6 +30,11 @@
     [self.pictureIV sd_setImageWithURL:[NSURL URLWithString:self.deputy.pictureURL] placeholderImage:[UIImage imageNamed:@"PicturePH"]];
     
     
+    if ([self.deputy.email isEqualToString:@""]) {
+        self.emailBT.enabled = NO;
+    }
+
+    
 }
 
 
@@ -47,5 +52,50 @@
     }
 
 }
+
+
+- (IBAction)sendEmail:(id)sender {
+    
+
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+        mailComposer.navigationBar.tintColor = MAIN_THEME_COLOR;
+        
+
+        
+        [mailComposer setToRecipients:@[self.deputy.email]];
+        mailComposer.mailComposeDelegate = self;
+        [self presentViewController:mailComposer animated:YES completion:nil];
+    }
+}
+
+
+
+
+#pragma mark MFMailComposeViewControllerDelegate
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller
+         didFinishWithResult:(MFMailComposeResult)result
+                       error:(NSError *)error{
+    
+    if (!error) {
+        
+        if (result == MFMailComposeResultSent) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Mensaje enviado" message:@"Tu mensaje ha sido enviado, gracias por tus comentarios." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            
+            [alertView show];
+            
+            
+        }
+        
+    }
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
 
 @end
