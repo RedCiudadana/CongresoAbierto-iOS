@@ -242,6 +242,7 @@
                                                   [self.view removeFromSuperview];
                                                   _superViewController = nil;
                                                   completion();
+                                                  [self clearTextView];
                                               }
                                               
                                               [_adjustedScrollView setContentOffset:CGPointZero animated:YES] ;
@@ -394,11 +395,18 @@ static UIView* animationCannotDismissTextEditorView;
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     [self resizeEditor:NO];
-    return YES;
+    NSString *newString = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    return !([newString length] > 120);
+    
+
 }
 
 - (NSString*)getText {
     return _textView.text;
 }
+
+
+
 
 @end

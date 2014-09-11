@@ -45,7 +45,7 @@
     
     
     //  Setup comment textView to mimic textField
-    [commentTF.layer setBorderColor:[PLACEHOLDER_GRAY CGColor]];
+    [commentTF.layer setBorderColor:[[UIColor groupTableViewBackgroundColor] CGColor]];
     [commentTF.layer setBorderWidth:1.0f];
     [commentTF.layer setCornerRadius:7.0f];
     [commentTF.layer setMasksToBounds:YES];
